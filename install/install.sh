@@ -92,7 +92,7 @@ yum -y install mod_ssl openssl
 mkdir -p "/etc/httpd/sites-available"
 mkdir -p "/etc/httpd/sites-enabled"
 cp "$SCRIPTDIR/conf/001-default-ssl.conf" "/etc/httpd/sites-available"
-ln -s "../sites-available/001-default-ssl.conf" "/etc/httpd/sites-enabled/002-default-ssl.conf"
+ln -s "../sites-available/001-default-ssl.conf" "/etc/httpd/sites-enabled/001-default-ssl.conf"
 
 # Add including the sites' configurations in the main configuration
 # file. Check if that has not been done before.
@@ -115,6 +115,9 @@ mkdir -p "/etc/httpd/ssl-certs"
 mkdir -p "/var/www/html/secure"
 echo "Hello world." | tee "/var/www/html/secure/index.html"
 
+# Open the ports 80 and 443
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --add-port=443/tcp --permanent
 
 ###################################
 #
@@ -124,4 +127,8 @@ echo "Hello world." | tee "/var/www/html/secure/index.html"
 
 apachectl start
 systemctl start shibd.service
+
+# Set up daemons so they start on reboot
+chkconfig httpd on
+chkconfig shibd on
 
