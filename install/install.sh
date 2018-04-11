@@ -2,6 +2,30 @@
 SCRIPTDIR=$(dirname "$0")
 DATE=$( date +%d-%m-%y )
 
+# Check if root
+if ! [ $(id -u) = 0 ]; then
+   echo "You need root permissions to run this."
+   exit 1
+fi
+
+# Check if yum installed
+if ! [ $( which yum ) ]; then
+   echo "Yum Package Manager not found. Weird."
+   exit 1
+fi
+
+# Is this CentOS 7?
+if ! [ -f "/etc/centos-release" ]; then
+    echo "Warning: This seems not to be a CentOS environment."
+else
+    CENTOS_VER=$( grep -o "release [0-9]*" "/etc/centos-release"| grep -o "[0-9]*" )
+    if ! [ $CENTOS_VER = 7 ]; then
+        echo "Warning: This scripts is meant to be used with CentOs version 7."
+        echo "This seems to be CentOs version $CENTOS_VER."
+    fi
+fi
+
+
 # Clean all cached metadate. Update the repos & packages.
 yum clean metadata
 yum clean all
