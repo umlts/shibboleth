@@ -10,7 +10,7 @@ Setup scripts for Shibboleth using CentOS 7. Execute `./install/install.sh` to i
 
 Install VirtualBox & Vagrant. Run `vagrant up` to create the VM.
 
-Port 80 is forwarded to Port 5080: <http://localhost:5080/> , Port 443 to 5443: <http://localhost:5443/>
+Port 80 is forwarded to Port 5080: <http://localhost:5080/> , Port 443 to 5443: <https://localhost:5443/>
 
 ### More information
 
