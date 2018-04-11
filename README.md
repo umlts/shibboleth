@@ -12,6 +12,8 @@ Install VirtualBox & Vagrant. Run `vagrant up` to create the VM.
 
 Port 80 is forwarded to Port 5080: <http://localhost:5080/> , Port 443 to 5443: <https://localhost:5443/>
 
+Get the metadata here: <https://localhost:5443/Shibboleth.sso/Metadata>
+
 ### More information
 
 More information on the configuration can be found here: <https://trac.lib.missouri.edu/lso/ticket/1624>
