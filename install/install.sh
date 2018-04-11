@@ -49,8 +49,8 @@ yum -y install \
 
 # Set up repository
 wget \
-    https://shibboleth.net/cgi-bin/sp_repo.cgi?platform=CentOS_7 \
-    -O /etc/yum.repos.d/shibboleth.repo
+    "https://shibboleth.net/cgi-bin/sp_repo.cgi?platform=CentOS_7" \
+    -O "/etc/yum.repos.d/shibboleth.repo"
 
 # Install shibboleth
 yum -y install shibboleth.x86_64
