@@ -125,11 +125,3 @@ echo "Hello world." | tee "/var/www/html/secure/index.html"
 apachectl start
 systemctl start shibd.service
 
-
-###################################
-#
-# Print out some extra
-# information
-#
-###################################
-
