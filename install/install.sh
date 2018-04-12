@@ -109,7 +109,15 @@ fi
 
 # Create the test certificates
 mkdir -p "/etc/httpd/ssl-certs"
-/etc/ssl/certs/make-dummy-cert "/etc/httpd/ssl-certs/server-ca.crt"
+/etc/ssl/certs/make-dummy-cert "/etc/pki/tls/certs/dummy.crt"
+
+# Copy from /certs to the their locations
+cp "$SCRIPTDIR/*.crt" "/etc/pki/tls/certs"
+cp "$SCRIPTDIR/*.key" "/etc/pki/tls/private"
+cp "$SCRIPTDIR/*.csr" "/etc/pki/tls/private"
+
+# Fix the SELinux contexts
+restorecon -RvF "/etc/pki"
 
 # Make a test folter
 mkdir -p "/var/www/html/secure"
