@@ -1,0 +1,90 @@
+<!--
+This is example metadata only. Do *NOT* supply it as is without review,
+and do *NOT* provide it in real time to your partners.
+ -->
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" ID="_8bc346d4f96896653114b0658b022ad9b1564fca" entityID="https://cat.libdev.missouri.edu/shibboleth">
+
+  <md:Extensions xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport">
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+  </md:Extensions>
+
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+    <md:Extensions>
+      <!-- cat.libdev.missouri.edu -->
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">Catalog test site</mdui:DisplayName>
+        <mdui:Description xml:lang="en">cat.libdev.missouri.edu test site.</mdui:Description>
+        <mdui:Logo height="146" width="148">https://cat.libdev.missouri.edu/icons/logo.png</mdui:Logo>
+      </mdui:UIInfo>
+      <!-- /cat.libdev.missouri.edu -->
+      <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/Login"/>
+      <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/Login" index="1"/>
+    </md:Extensions>
+    <md:KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>shibboleth</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>CN=shibboleth</ds:X509SubjectName>
+          <ds:X509Certificate>MIID5TCCAk2gAwIBAgIJAJFcBgpOXfpcMA0GCSqGSIb3DQEBCwUAMBUxEzARBgNV
+BAMTCnNoaWJib2xldGgwHhcNMTgwNDEyMTY0OTMyWhcNMjgwNDA5MTY0OTMyWjAV
+MRMwEQYDVQQDEwpzaGliYm9sZXRoMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIB
+igKCAYEAuPItTDYHOmKTep9ys6qf+KWPv9fqcwMfUpoqvhbBKRokscBPwppUw2Yg
+JOKFZCS8JRvjPccIH7BJyXKX+jMGHN0GNHAU3Qwi96Sv3VDpz5mbzZ+J/ZIX963j
+SD/CyqaBBSKiwoDu0nWznwj76wfAX4AcyUmUGdFITmYYprD/qKm9Rw/kHgB9g6F1
+DavXPerZqNMtZd9IloXur8nkciXut7vKEDgbkSbwza9dLp5h/u+ml5np39M0kU2L
+zNJHffK7y+T5lawYWGuwd6YqFPMCC4k6i6S0LKBUQQ+dBYBMXDtImcFN2Nqz/p+y
+UzVaTzYuuoo9cGrbIX8KlDioHDiNP65aqSSYwVAA15QQhK7y4U2GustnM4a/ZWaW
+OJVR0nr3N20GX2iISp6FF3XHLADY/mKQsdiuNYDLx9t8tgrL/ABhaNI/hdtcisXE
+m8cjHnS8SOyydT9S3QuRGcXm1Fh10APQz1uLjzekJaql5SeAsDNENRcObdwB10hs
+14t7R5PlAgMBAAGjODA2MBUGA1UdEQQOMAyCCnNoaWJib2xldGgwHQYDVR0OBBYE
+FDdw872ObU9T08VuEPfWc2rLQMF6MA0GCSqGSIb3DQEBCwUAA4IBgQCv8FXpfRwg
+qZY0c8+zbtEcsFBXCIMhG0x0qECgj2W23dRjxV5rznqr/CPc8kKFvI2xPO/Tn0c7
+GGWzd2CFFofN2uT1qvurgkEA/ZI8NkF5QKqh0sGMfY/CProJYMMwK8n4s1XsuDta
+GFiF+fCiRY6Vbz3JhQEA857klcgD74aycBXyVfYzBD953lfBEl6KufW5FYG1uIVs
+WDjjX/E5ug33QrXxvv4M5YEZs16ljxnaEOT9mGmL1qE2LNp+aeVjocmEySYTJE5F
+0CFdFUrUaimAh4512PkHV+iEr+/l6K+QnZ3xEEd8Ro4G28GUKhGXf2PZ62qvf+B4
+KEnX0PBfGZG4g8i2v5uYItMi97s0Eg7Vu3WeGpR0yoF3oDDPl/TZHhwPebEivUFO
+/ZtBOe0y65xNEXFpxShcbsRAJOTR5VnG+6TaR8T7Vh2Avt9n47ExXr7lBEfw1Uja
+5FA0+blhbxxrOyiduFROYu+CGG6e5p4hDaBDS6IJNoUalmSWBEMlP4w=
+</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes128-gcm"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes192-gcm"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes256-gcm"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/Artifact/SOAP" index="1"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/SLO/SOAP"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/SLO/Redirect"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/SLO/POST"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/SLO/Artifact"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/SAML2/Artifact" index="3"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/SAML2/ECP" index="4"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/SAML/POST" index="5"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cat.libdev.missouri.edu/Shibboleth.sso/SAML/Artifact" index="6"/>
+  </md:SPSSODescriptor>
+
+</md:EntityDescriptor>

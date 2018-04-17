@@ -96,7 +96,7 @@ ln -s "../sites-available/001-default-ssl.conf" "/etc/httpd/sites-enabled/001-de
 
 # Add including the sites' configurations in the main configuration
 # file. Check if that has not been done before.
-if ( grep "sites-enabled" "/etc/httpd/conf/httpd.conf" )
+if ! ( grep "sites-enabled" "/etc/httpd/conf/httpd.conf" )
 then
     # Create a backup of the original configuration
     cp "/etc/httpd/conf/httpd.conf" "/etc/httpd/conf/httpd.backup-$DATE.conf"
@@ -112,9 +112,10 @@ mkdir -p "/etc/httpd/ssl-certs"
 /etc/ssl/certs/make-dummy-cert "/etc/pki/tls/certs/dummy.crt"
 
 # Copy from /certs to the their locations
-cp "$SCRIPTDIR/*.crt" "/etc/pki/tls/certs"
-cp "$SCRIPTDIR/*.key" "/etc/pki/tls/private"
-cp "$SCRIPTDIR/*.csr" "/etc/pki/tls/private"
+find certs -type f -name *.cer -exec cp {} /etc/pki/tls/certs \;
+find certs -type f -name *.crt -exec cp {} /etc/pki/tls/certs \;
+find certs -type f -name *.key -exec cp {} /etc/pki/tls/private \;
+find certs -type f -name *.csr -exec cp {} /etc/pki/tls/private \;
 
 # Fix the SELinux contexts
 restorecon -RvF "/etc/pki"

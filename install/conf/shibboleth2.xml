@@ -20,8 +20,10 @@
     -->
 
     <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
-    <ApplicationDefaults entityID="https://cat.libdev.missouri.edu/shibboleth"
-                         REMOTE_USER="samaccountname eppn persistent-id targeted-id">
+    <ApplicationDefaults
+	entityID="https://cat.libdev.missouri.edu/shibboleth"
+	homeURL="https://cat.lso.missouri.edu/"
+        REMOTE_USER="lsoid samaccountname eppn persistent-id targeted-id">
 
         <!--
         Controls session lifetimes, address checks, cookie handling, and the protocol handlers.
@@ -36,7 +38,7 @@
             consistentAddress="true"
             relayState="ss:mem" handlerSSL="true"
             postData="ss:mem" postTemplate="postTemplate.html"
-            cookieProps="; path=/; secure; ; HttpOnly">
+            cookieProps="; path=/; secure; HttpOnly">
 
             <!--
             Configures SSO for a default IdP. To allow for >1 IdP, remove
@@ -71,7 +73,7 @@
         Allows overriding of error template information/filenames. You can
         also add attributes with values that can be plugged into the templates.
         -->
-        <Errors supportContact="bartikowskiw@missouri.edu"
+        <Errors supportContact="asklts@missouri.edu"
             helpLocation="/about.html"
             styleSheet="/shibboleth-sp/main.css"/>
 
