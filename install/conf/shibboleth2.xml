@@ -22,7 +22,7 @@
     <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
     <ApplicationDefaults
 	entityID="https://cat.libdev.missouri.edu/shibboleth"
-	homeURL="https://cat.lso.missouri.edu/"
+	homeURL="https://cat.libdev.missouri.edu/"
         REMOTE_USER="employeeid samaccountname eppn persistent-id targeted-id">
 
         <!--
@@ -59,7 +59,7 @@
             <Handler type="MetadataGenerator" Location="/Metadata" signing="false"/>
 
             <!-- Status reporting service. -->
-            <Handler type="Status" Location="/Status" acl="127.0.0.1 ::1 128.206.160.77"/>
+            <Handler type="Status" Location="/Status" acl="127.0.0.1 ::1"/>
 
             <!-- Session diagnostic service. -->
             <!-- Set it back to false in production -->
