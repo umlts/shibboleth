@@ -56,7 +56,7 @@ wget \
 yum -y install shibboleth.x86_64
 
 # Shibboleth is using some custom versions of a couple of
-# libraries. Make sure the get used.
+# libraries. Make sure they get used.
 if ( shibd -t | grep "libcurl lacks OpenSSL-specific options" )
 then
     echo "Include Shibboleth's custom libraries."
@@ -70,6 +70,9 @@ fi
 # Create a backup of the config files we will change
 cp "/etc/shibboleth/shibboleth2.xml" "/etc/shibboleth/shibboleth2.backup-$DATE.xml"
 cp "/etc/shibboleth/attribute-map.xml" "/etc/shibboleth/attribute-map.xml.backup-$DATE.xml"
+
+# Overwrite the shibboleth generated certificate (if given)
+find "$SCRIPTDIR/certs" -type f -name "sp-*.pem" -exec cp --backup=numbered -- {} /etc/shibboleth \;
 
 # Overwrite the config files with our settings
 cp "$SCRIPTDIR/conf/shibboleth2.xml"  "/etc/shibboleth/shibboleth2.xml"
@@ -91,42 +94,19 @@ yum -y install mod_ssl openssl
 # sites-enabled
 mkdir -p "/etc/httpd/sites-available"
 mkdir -p "/etc/httpd/sites-enabled"
-cp "$SCRIPTDIR/conf/001-default-ssl.conf" "/etc/httpd/sites-available"
-ln -s "../sites-available/001-default-ssl.conf" "/etc/httpd/sites-enabled/001-default-ssl.conf"
 
-# Add including the sites' configurations in the main configuration
-# file. Check if that has not been done before.
-if ! ( grep "sites-enabled" "/etc/httpd/conf/httpd.conf" )
-then
-    # Create a backup of the original configuration
-    cp "/etc/httpd/conf/httpd.conf" "/etc/httpd/conf/httpd.backup-$DATE.conf"
-
-    # Add IncludeOptional statement
-    echo "" >> "/etc/httpd/conf/httpd.conf"
-    echo "# Include sites / vhosts" >> "/etc/httpd/conf/httpd.conf"
-    echo "IncludeOptional sites-enabled/*.conf" >> "/etc/httpd/conf/httpd.conf"
-fi
-
-# Create the test certificates
-mkdir -p "/etc/httpd/ssl-certs"
-/etc/ssl/certs/make-dummy-cert "/etc/pki/tls/certs/dummy.crt"
-
-# Copy from /certs to the their locations
-find certs -type f -name *.cer -exec cp {} /etc/pki/tls/certs \;
-find certs -type f -name *.crt -exec cp {} /etc/pki/tls/certs \;
-find certs -type f -name *.key -exec cp {} /etc/pki/tls/private \;
-find certs -type f -name *.csr -exec cp {} /etc/pki/tls/private \;
-
-# Fix the SELinux contexts
-restorecon -RvF "/etc/pki"
+# Set up the vhosts if certificates are give
+$SCRIPTDIR/set-up-vhosts.sh
 
 # Make a test folter
 mkdir -p "/var/www/html/secure"
-echo "Hello world." | tee "/var/www/html/secure/index.html"
+echo "<h1>Logged in</h1><pre><?php print_r( \$_SERVER ); ?></pre>" | tee "/var/www/html/secure/index.php"
 
 # Open the ports 80 and 443
-firewall-cmd --zone=public --add-port=80/tcp --permanent
-firewall-cmd --zone=public --add-port=443/tcp --permanent
+if ! ( firewall-cmd --state | grep "not running" ); then
+    firewall-cmd --zone=public --add-port=80/tcp --permanent
+    firewall-cmd --zone=public --add-port=443/tcp --permanent
+fi
 
 ###################################
 #
@@ -134,10 +114,10 @@ firewall-cmd --zone=public --add-port=443/tcp --permanent
 #
 ###################################
 
+# Start the services
 apachectl start
 systemctl start shibd.service
 
 # Set up daemons so they start on reboot
 chkconfig httpd on
 chkconfig shibd on
-

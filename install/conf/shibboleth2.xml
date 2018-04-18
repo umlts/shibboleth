@@ -23,7 +23,7 @@
     <ApplicationDefaults
 	entityID="https://cat.libdev.missouri.edu/shibboleth"
 	homeURL="https://cat.lso.missouri.edu/"
-        REMOTE_USER="lsoid samaccountname eppn persistent-id targeted-id">
+        REMOTE_USER="employeeid samaccountname eppn persistent-id targeted-id">
 
         <!--
         Controls session lifetimes, address checks, cookie handling, and the protocol handlers.
