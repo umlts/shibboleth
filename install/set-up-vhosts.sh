@@ -14,7 +14,7 @@ then
     echo "IncludeOptional sites-enabled/*.conf" >> "/etc/httpd/conf/httpd.conf"
 fi
 
-# Rename certs. Replace _ with .
+# Rename certs. Replace "_" with "."
 CERT_FILES=$( find "$SCRIPTDIR/certs" -name *.csr -o -name *.key -o -name *.cer -o -name *.crt )
 for CERT_FILE in $CERT_FILES
 do
@@ -24,10 +24,10 @@ done
 
 
 # Copy from /certs to the their locations
-find "$SCRIPTDIR/certs" -type f -name *.cer -exec cp {} /etc/pki/tls/certs \;
-find "$SCRIPTDIR/certs" -type f -name *.crt -exec cp {} /etc/pki/tls/certs \;
-find "$SCRIPTDIR/certs" -type f -name *.key -exec cp {} /etc/pki/tls/private \;
-find "$SCRIPTDIR/certs" -type f -name *.csr -exec cp {} /etc/pki/tls/private \;
+find "$SCRIPTDIR/certs" -type f -name "*.cer" -exec cp {} /etc/pki/tls/certs \;
+find "$SCRIPTDIR/certs" -type f -name "*.crt" -exec cp {} /etc/pki/tls/certs \;
+find "$SCRIPTDIR/certs" -type f -name "*.key" -exec cp {} /etc/pki/tls/private \;
+find "$SCRIPTDIR/certs" -type f -name "*.csr" -exec cp {} /etc/pki/tls/private \;
 
 # Fix the SELinux contexts
 restorecon -RvF "/etc/pki"

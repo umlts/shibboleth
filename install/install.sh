@@ -33,13 +33,14 @@ else
     fi
 fi
 
+
 ###################################
 #
 # Set up OS, install basics
 #
 ###################################
 
-# Clean all cached metadate. Update the repos & packages.
+# Clean all cached metadata. Update the repos & packages
 yum clean metadata
 yum clean all
 yum check-update
@@ -52,6 +53,7 @@ yum -y install \
     wget \
     yum-plugin-priorities \
     deltarpm
+
 
 ###################################
 #
@@ -117,6 +119,7 @@ if ! ( sudo firewall-cmd --state 2>&1 | grep -e "not running" ); then
     firewall-cmd --zone=public --add-port=80/tcp --permanent
     firewall-cmd --zone=public --add-port=443/tcp --permanent
 fi
+
 
 ###################################
 #
