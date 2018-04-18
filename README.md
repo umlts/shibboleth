@@ -17,7 +17,7 @@ the `install/certs` folder, moves them to the appropriate folders on the
 server and resets the SELinux file rights.
 
 It creates the Virtual Host config files in `/etc/httpd/sites-available` and
-adds links to them in the `/etc/httpd/sites-enabled`folder.
+adds links to them in the `/etc/httpd/sites-enabled` folder.
 
 To do all this properly, the files must follow this naming convention:
 
