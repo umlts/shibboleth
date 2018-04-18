@@ -3,8 +3,8 @@ Vagrant.configure("2") do |config|
     config.vm.box = "centos/7"
 
     # Forward Apache
-	config.vm.network "forwarded_port", guest: 80, host: 5080
-	config.vm.network "forwarded_port", guest: 443, host: 5443
+    config.vm.network "forwarded_port", guest: 80, host: 5080
+    config.vm.network "forwarded_port", guest: 443, host: 5443
 
     # Clean installer dir
     config.vm.provision "shell",
