@@ -1,6 +1,14 @@
 #!/bin/bash
+
 SCRIPTDIR=$(dirname "$0")
 DATE=$( date +%d-%m-%y )
+
+
+###################################
+#
+# Check environment
+#
+###################################
 
 # Check if root
 if ! [ $(id -u) = 0 ]; then
@@ -25,6 +33,11 @@ else
     fi
 fi
 
+###################################
+#
+# Set up OS, install basics
+#
+###################################
 
 # Clean all cached metadate. Update the repos & packages.
 yum clean metadata
@@ -39,7 +52,6 @@ yum -y install \
     wget \
     yum-plugin-priorities \
     deltarpm
-
 
 ###################################
 #
