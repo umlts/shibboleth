@@ -1,7 +1,9 @@
 Shibboleth CentOS
 =================
 
-Setup scripts for Shibboleth using CentOS 7. Execute `./install/install.sh` 
+Setup scripts for configuring Shibboleth on CentOS 7. 
+
+Execute `./install/install.sh` 
 to install Apache and Shibboleth and set up a basic configuration.
 
 The folder `/var/www/html/secure` holds an `index.php` file for testing. 
@@ -45,7 +47,3 @@ Port 443 to 5443: <https://localhost:5443/>
 
 Get the metadata here: <https://localhost:5443/Shibboleth.sso/Metadata>
 
-### More information
-
-More information on the configuration can be found here: 
-<https://trac.lib.missouri.edu/lso/ticket/1624>
