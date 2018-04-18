@@ -1,5 +1,5 @@
-Shibboleth CentOS
-=================
+Shibboleth on CentOS 7
+======================
 
 Setup scripts for configuring Shibboleth on CentOS 7. 
 
