@@ -78,7 +78,7 @@ then
     ldconfig
 
     shibd -t | grep "libcurl lacks OpenSSL-specific options" \
-        && "Including libraries failed. Continuing anyway."
+        && echo "Including libraries failed. Continuing anyway."
 fi
 
 # Create a backup of the config files we will change
