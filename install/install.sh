@@ -101,13 +101,11 @@ cp "$SCRIPTDIR/conf/attribute-map.xml"  "/etc/shibboleth/attribute-map.xml"
 yum -y install mod_ssl openssl
 
 # Debianize CentOs' Apache config a little:
-# Create folders for sites / vhost configuration files. Copy
-# SSL config and enable it by soft linking it from sites-available
-# sites-enabled
+# Create folders for sites / vhost configuration files
 mkdir -p "/etc/httpd/sites-available"
 mkdir -p "/etc/httpd/sites-enabled"
 
-# Set up the vhosts if certificates are give
+# Set up the vhosts if certificates are given
 $SCRIPTDIR/set-up-vhosts.sh
 
 # Make a test folter
