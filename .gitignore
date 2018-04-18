@@ -1,1 +1,5 @@
 .vagrant
+install/certs/*.cer
+install/certs/*.crt
+install/certs/*.key
+install/certs/*.pem
