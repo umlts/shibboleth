@@ -103,7 +103,7 @@ mkdir -p "/var/www/html/secure"
 echo "<h1>Logged in</h1><pre><?php print_r( \$_SERVER ); ?></pre>" | tee "/var/www/html/secure/index.php"
 
 # Open the ports 80 and 443
-if ! ( firewall-cmd --state | grep "not running" ); then
+if ! ( sudo firewall-cmd --state 2>&1 | grep -e "not running" ); then
     firewall-cmd --zone=public --add-port=80/tcp --permanent
     firewall-cmd --zone=public --add-port=443/tcp --permanent
 fi
