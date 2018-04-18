@@ -10,6 +10,15 @@ The folder `/var/www/html/secure` holds an `index.php` file for testing.
 This folder is not really neccessary. Shibboleth protects everything that 
 has a path which starts with `/secure/` per default (see `/etc/httpd/conf.d/shib.conf`).
 
+## Manual changes
+
+`/etc/shibboleth/shibboleth2.xml` needs to be adapted, change the domain
+names in line 24 and 25 to:
+
+	entityID="https://www.yourdomainname.com/shibboleth"
+	homeURL="https://www.yourdomainname.com/"
+
+
 ## SSL Certificates and Virtual hosts
 
 The script takes certificates, keys and the certificate chain files form 
