@@ -25,7 +25,6 @@ To do all this properly, the files must follow this naming convention:
 * Key: `www.domainname.com.key`
 * Chain file: `www.domainname.com.interm.cer`
 
-
 ## Using existing Shibboleth keys
 
 If you want to reuse Shibboleth key files you already created, put the files
@@ -44,6 +43,15 @@ In case vagrant complains about a missing Guest Additions, try running
 
 Port 80 is forwarded to Port 5080: <http://localhost:5080/> ,
 Port 443 to 5443: <https://localhost:5443/>
+
+Ports 80 and 443 are privileged on Linux machines. You need to be root to use
+them. This can be done with SSH port forwarding:
+
+`sudo ssh -p 2222 -gNfL 80:localhost:80 vagrant@localhost -i .vagrant/machines/default/virtualbox/private_key`
+
+and
+
+`sudo ssh -p 2222 -gNfL 443:localhost:443 vagrant@localhost -i .vagrant/machines/default/virtualbox/private_key`
 
 Get the metadata here: <https://localhost:5443/Shibboleth.sso/Metadata>
 
