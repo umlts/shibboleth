@@ -8,7 +8,7 @@ to install Apache and Shibboleth and set up a basic configuration.
 
 The folder `/var/www/html/secure` holds an `index.php` file for testing. 
 This folder is not really neccessary. Shibboleth protects everything that 
-has a path which starts with `/secure/`.
+has a path which starts with `/secure/` per default (see `/etc/httpd/conf.d/shib.conf`).
 
 ## SSL Certificates and Virtual hosts
 
