@@ -21,8 +21,8 @@
 
     <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
     <ApplicationDefaults
-	entityID="https://cat.libdev.missouri.edu/shibboleth"
-	homeURL="https://cat.libdev.missouri.edu/"
+	entityID="https://merlin.lib.umsystem.edu/shibboleth"
+	homeURL="https://merlin.lib.umsystem.edu/"
         REMOTE_USER="employeeid samaccountname eppn persistent-id targeted-id">
 
         <!--
