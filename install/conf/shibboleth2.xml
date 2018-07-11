@@ -46,9 +46,16 @@
             (Set discoveryProtocol to "WAYF" for legacy Shibboleth WAYF support.)
             You can also override entityID on /Login query string, or in RequestMap/htaccess.
             -->
+            <!--
             <SSO entityID="https://shib-idp.umsystem.edu/idp/shibboleth"
                 discoveryProtocol="SAMLDS"
                 discoveryURL="https://shib-idp.umsystem.edu/DS/WAYF">
+                SAML2 SAML1
+            </SSO>
+            -->
+            <SSO 
+                discoveryProtocol=“SAMLDS” 
+                discoveryURL=“https://merlin.lib.umsystem.edu/WAYF”>
                 SAML2 SAML1
             </SSO>
 
