@@ -54,8 +54,8 @@
             </SSO>
             -->
             <SSO 
-                discoveryProtocol=“SAMLDS” 
-                discoveryURL=“https://merlin.lib.umsystem.edu/WAYF”>
+                discoveryProtocol="SAMLDS"
+                discoveryURL="https://merlin.lib.umsystem.edu/WAYF">
                 SAML2 SAML1
             </SSO>
 
