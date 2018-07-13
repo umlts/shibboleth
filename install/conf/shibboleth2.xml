@@ -21,8 +21,8 @@
 
     <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
     <ApplicationDefaults
-	entityID="https://merlin.lib.umsystem.edu/shibboleth"
-	homeURL="https://merlin.lib.umsystem.edu/"
+        entityID="https://merlin.lib.umsystem.edu/shibboleth"
+        homeURL="https://merlin.lib.umsystem.edu/"
         REMOTE_USER="employeeid samaccountname eppn persistent-id targeted-id">
 
         <!--
@@ -36,7 +36,7 @@
         -->
         <Sessions lifetime="32400" timeout="32400" checkAddress="false"
             consistentAddress="true"
-            relayState="ss:mem" handlerSSL="true"
+            relayState="cookie:1" handlerSSL="true"
             postData="ss:mem" postTemplate="postTemplate.html"
             cookieProps="; path=/; secure; HttpOnly">
 
@@ -53,9 +53,9 @@
                 SAML2 SAML1
             </SSO>
             -->
-            <SSO 
+            <SSO
                 discoveryProtocol="SAMLDS"
-                discoveryURL="https://merlin.lib.umsystem.edu/WAYF">
+                discoveryURL="https://merlin.lib.umsystem.edu/WAYF/">
                 SAML2 SAML1
             </SSO>
 
@@ -87,7 +87,7 @@
         <!-- Example of remotely supplied batch of signed metadata. -->
         <!--
         <MetadataProvider type="XML" validate="true"
-	      uri="http://example.org/federation-metadata.xml"
+              uri="http://example.org/federation-metadata.xml"
               backingFilePath="federation-metadata.xml" reloadInterval="7200">
             <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
             <MetadataFilter type="Signature" certificate="fedsigner.pem"/>
