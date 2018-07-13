@@ -38,7 +38,7 @@
             consistentAddress="true"
             relayState="cookie:1" handlerSSL="true"
             postData="ss:mem" postTemplate="postTemplate.html"
-            cookieProps="; path=/; secure; HttpOnly">
+            cookieProps="; path=/; secure; HttpOnly; domain=.lib.umsystem.edu">
 
             <!--
             Configures SSO for a default IdP. To allow for >1 IdP, remove
